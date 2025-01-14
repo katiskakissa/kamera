@@ -1,1 +1,86 @@
-   <p>Hellou222 huuhaa aaa</p>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RuuviTag Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+        }
+        .container img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: auto;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>RuuviTag Data</h1>
+    <div class="container">
+        <img src="test.jpg" width="300">
+        <table>
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                <!-- Data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to display JSON data in a table
+        function displayData(data) {
+            const tableBody = document.getElementById("data-table");
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const row = document.createElement("tr");
+                    const keyCell = document.createElement("td");
+                    const valueCell = document.createElement("td");
+                    keyCell.textContent = key;
+                    valueCell.textContent = data[key];
+                    row.appendChild(keyCell);
+                    row.appendChild(valueCell);
+                    tableBody.appendChild(row);
+                }
+            }
+        }
+
+        // Fetch JSON data from file
+        fetch("ruuvi_data_c560a38ca356.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok " + response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                displayData(data);
+            })
+            .catch((error) => {
+                console.error("There was a problem with the fetch operation:", error);
+            });
+    </script>
+</body>
+</html>
