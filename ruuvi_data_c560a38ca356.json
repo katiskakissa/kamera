@@ -1,15 +1,15 @@
 {
   "dataFormat": 5,
-  "rssi": -63,
-  "temperature": 22.38,
-  "humidity": 31.0125,
-  "pressure": 99997,
-  "accelerationX": 44,
-  "accelerationY": 8,
-  "accelerationZ": 1012,
+  "rssi": -62,
+  "temperature": 22.335,
+  "humidity": 30.9325,
+  "pressure": 100034,
+  "accelerationX": 40,
+  "accelerationY": -4,
+  "accelerationZ": 1024,
   "battery": 2798,
   "txPower": 4,
   "movementCounter": 143,
-  "measurementSequenceNumber": 23504,
+  "measurementSequenceNumber": 24204,
   "mac": "C5:60:A3:8C:A3:56"
 }
